@@ -1,17 +1,19 @@
 #include "lists.h"
 
 /**
- * check_cycle - finds the index at which a loop starts
- * @head: list head
+ * check_cycle - checks if a linked list contains a cycle
+ * @list: linked list to check
  *
- * Return: 0 if no cycle 1 if there is cycle
+ * Return: 1 if the list has a cycle, 0 if it doesn't
  */
-int check_cycle(listint_t *head)
+int check_cycle(listint_t *list)
 {
-	listint_t *fast = head, *slow = head;
+	listint_t *slow = list;
+	listint_t *fast = list;
 
-	if (!head || !(head->next))
+	if (!list)
 		return (0);
+
 	while (slow && fast && fast->next)
 	{
 		slow = slow->next;
@@ -19,5 +21,6 @@ int check_cycle(listint_t *head)
 		if (slow == fast)
 			return (1);
 	}
+
 	return (0);
 }
