@@ -1,11 +1,8 @@
 #!/usr/bin/python3
-"""Defines a locked class."""
+"""Module for LockedClass"""
 
 
 class LockedClass:
-    """
-    Prevent the user from instantiating new LockedClass attributes
-    for anything but attributes called 'first_name'.
-    """
-
-    __slots__ = ["first_name"]
+    """A locked class that only lets the user create the instance
+    attribute 'first_name'"""
+    __slots__ = ['first_name']

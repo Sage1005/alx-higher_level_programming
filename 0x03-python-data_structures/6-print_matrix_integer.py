@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-
 def print_matrix_integer(matrix=[[]]):
-    for row in matrix:
-        for column in row:
-            if column == row[-1]:
-                print('{:d}'.format(column), end='')
+    if matrix == [[]]:
+        print("")
+    for i in matrix:
+        count = 1
+        for j in i:
+            if count < len(i):
+                print("{:d}".format(j), end=" ")
             else:
-                print('{:d}'.format(column), end=' ')
-        print()
+                print("{:d}".format(j))
+            count += 1

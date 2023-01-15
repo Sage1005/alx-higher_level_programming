@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""Defines a JSON file-writing function."""
+"""The to json string module"""
 import json
 
 
 def save_to_json_file(my_obj, filename):
-    """Write an object to a text file using JSON representation."""
-    with open(filename, "w") as f:
-        json.dump(my_obj, f)
+    """save json representation of
+    my_obj in filename"""
+    with open(filename, "w", encoding="Utf-8") as file:
+        file.write(json.dumps(my_obj))
