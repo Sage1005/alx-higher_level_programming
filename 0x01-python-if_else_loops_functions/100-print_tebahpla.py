@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-for i in reversed(range(97, 123)):
-    if i % 2 == 1:
-        to_p = chr(i - 32)
+for i in range(ord('z'), ord('a') - 1, -1):
+    if i % 2 == 0:
+        diff = 0
     else:
-        to_p = chr(i)
-    print("{:s}".format(to_p), end="")
+        diff = 32
+    print('{}'.format(chr(i - diff)), end='')

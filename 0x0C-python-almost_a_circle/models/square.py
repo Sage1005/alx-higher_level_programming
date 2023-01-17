@@ -1,41 +1,49 @@
 #!/usr/bin/python3
-"""The Square module"""
+'''Module for Square class.'''
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """The Square class"""
+    '''A Square class.'''
+
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialize an object"""
+        '''Constructor.'''
         super().__init__(size, size, x, y, id)
+
+    def __str__(self):
+        '''Returns string info about this square.'''
+        return '[{}] ({}) {}/{} - {}'.\
+            format(type(self).__name__, self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
-        """size of a rectangle"""
+        '''Size of this square.'''
         return self.width
 
     @size.setter
     def size(self, value):
-        """setter size"""
         self.width = value
         self.height = value
 
-    def __str__(self):
-        """Returns a representation of a square"""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+    def __update(self, id=None, size=None, x=None, y=None):
+        '''Internal method that updates instance attributes via */**args.'''
+        if id is not None:
+            self.id = id
+        if size is not None:
+            self.size = size
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
 
     def update(self, *args, **kwargs):
-        """Update an object"""
-        if len(args) > 0:
-            lp = ["id", "size", "x", "y"]
-            for i, k in zip(lp, args):
-                setattr(self, i, k)
-        else:
-            for i, k in kwargs.items():
-                if hasattr(self, i):
-                    setattr(self, i, k)
+        '''Updates instance attributes via no-keyword & keyword args.'''
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
 
     def to_dictionary(self):
-        """Dictionnary of attributes"""
-        attributes = ["id", "size", "x", "y"]
-        return {key: getattr(self, key) for key in attributes}
+        '''Returns dictionary representation of this class.'''
+        return {"id": self.id, "size": self.width,
+                "x": self.x, "y": self.y}

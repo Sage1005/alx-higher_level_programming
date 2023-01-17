@@ -1,1 +1,1 @@
-if else loop functions
+# Solution to tasks on conditionals & loops

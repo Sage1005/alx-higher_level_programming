@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-"""The to json string module"""
+"""Defines a JSON file-reading function."""
 import json
 
 
 def load_from_json_file(filename):
-    """load obj from json file"""
-    with open(filename, "r") as file:
-        line = file.readlines()
-        for i in line:
-            return (json.loads(i))
+    """Create a Python object from a JSON file."""
+    with open(filename) as f:
+        return json.load(f)

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def uniq_add(my_list=[]):
-    mo = []
-    for i in my_list:
-        if i not in mo:
-            mo.append(i)
-    return sum(mo)
+    """adds all unique integers in a list (only once for each integer)."""
+    sum = 0
+    for i in set(my_list):
+        sum += i
+    return sum
